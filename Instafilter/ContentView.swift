@@ -18,6 +18,14 @@ struct ContentView: View {
             .onTapGesture {
                 showingConfirmation = true
             }
+            .confirmationDialog("Change background", isPresented: $showingConfirmation) {
+                Button("Red") { backgroundColor = .red }
+                Button("Green") { backgroundColor = .green }
+                Button("Blue") { backgroundColor = .blue }
+                Button("Red", role: .cancel) {  }
+            } message: {
+                Text("Select a new color")
+            }
     }
 }
 
