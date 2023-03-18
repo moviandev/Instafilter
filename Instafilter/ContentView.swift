@@ -22,7 +22,7 @@ struct ContentView: View {
                 Button("Red") { backgroundColor = .red }
                 Button("Green") { backgroundColor = .green }
                 Button("Blue") { backgroundColor = .blue }
-                Button("Red", role: .cancel) {  }
+                Button("Cancel", role: .cancel) {  }
             } message: {
                 Text("Select a new color")
             }
