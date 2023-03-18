@@ -7,23 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var blurAmount = 0.0
-    
+struct ContentView: View {  
     var body: some View {
-        VStack {
-            Text("Hello, world!")
-                .blur(radius: blurAmount)
-            
-            Slider(value: $blurAmount, in: 0...20)
-                .onChange(of: blurAmount) { newValue in
-                    print("New value \(newValue)")
-                }
-            
-            Button("Random Blur") {
-                blurAmount = Double.random(in: 3...30)
-            }
-        }
+        Text("Hello, world!")
+            .padding()
     }
 }
 
