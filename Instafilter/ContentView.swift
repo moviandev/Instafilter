@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var blurAmount = 0.0 {
-        didSet {
-            print("New value is \(blurAmount)")
-        }
-    }
+    @State private var blurAmount = 0.0
     
     var body: some View {
         VStack {
