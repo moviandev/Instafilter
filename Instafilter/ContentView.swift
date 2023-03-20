@@ -30,7 +30,7 @@ struct ContentView: View {
         let currentFilter = CIFilter.twirlDistortion()
         
         currentFilter.inputImage = beginImage
-        currentFilter.radius = 50
+        currentFilter.radius = 500
         currentFilter.center = CGPoint(x: inputImage.size.width / 2, y: inputImage.size.height / 2)
         
         guard let outputImage = currentFilter.outputImage else { return }
