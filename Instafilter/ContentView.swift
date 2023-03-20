@@ -45,9 +45,6 @@ struct ContentView: View {
             currentFilter.setValue(amount * 10, forKey: kCIInputScaleKey)
         }
         
-        currentFilter.radius = 500
-        currentFilter.center = CGPoint(x: inputImage.size.width / 2, y: inputImage.size.height / 2)
-        
         guard let outputImage = currentFilter.outputImage else { return }
         
         if let cgImg = context.createCGImage(outputImage, from: outputImage.extent) {
