@@ -30,7 +30,14 @@ struct ContentView: View {
         let currentFilter = CIFilter.sepiaTone()
         
         currentFilter.inputImage = beginImage
-        currentFilter.intensity = 1
+        currentFilter.intensity = 0.2
+        
+        guard let outputImage = currentFilter.outputImage else { return }
+        
+        if let cgImg = context.createCGImage(outputImage, from: outputImage.extent) {
+            let uiImage = UIImage(cgImage: cgImg)
+            image = Image(uiImage: uiImage)
+        }
     }
 }
 
