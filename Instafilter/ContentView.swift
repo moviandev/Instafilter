@@ -26,7 +26,11 @@ struct ContentView: View {
         
         let beginImage = CIImage(image: inputImage)
         
-        // more to come
+        let context = CIContext()
+        let currentFilter = CIFilter.sepiaTone()
+        
+        currentFilter.inputImage = beginImage
+        currentFilter.intensity = 1
     }
 }
 
