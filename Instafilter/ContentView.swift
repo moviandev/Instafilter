@@ -5,6 +5,8 @@
 //  Created by Matheus Viana on 17/03/23.
 //
 
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct ContentView: View {
