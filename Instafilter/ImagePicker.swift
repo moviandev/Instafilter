@@ -9,16 +9,16 @@ import PhotosUI
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    class Coordinator {
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
         
     }
-    
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
         
         let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
         return picker
     }
     
