@@ -9,6 +9,11 @@ import PhotosUI
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
+    class Coordinator {
+        
+    }
+    
+    
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -18,5 +23,9 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
     }
 }
