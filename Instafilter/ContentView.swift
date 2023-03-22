@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var image: Image?
     @State private var filterIntensity = 0.5
     
+    @State private var showingImagePicker = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -27,7 +29,7 @@ struct ContentView: View {
                         .scaledToFit()
                 }
                 .onTapGesture {
-                    // Select image
+                    showingImagePicker = true
                 }
                 
                 HStack {
