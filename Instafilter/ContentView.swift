@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     
     @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
     
     var body: some View {
         NavigationView {
