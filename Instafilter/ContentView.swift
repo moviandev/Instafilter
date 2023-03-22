@@ -52,6 +52,9 @@ struct ContentView: View {
             .padding([.horizontal, .bottom])
             .navigationTitle("Instafilter")
             .onChange(of: inputImage) { _ in loadImage() }
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(image: $inputImage)
+            }
         }
     }
     
