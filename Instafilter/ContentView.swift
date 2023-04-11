@@ -16,8 +16,10 @@ struct ContentView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     
-    @State private var currentFilter = CIFilter.sepiaTone()
+    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     let context = CIContext()
+    
+    @State private var showingFilterSheet = false
     
     var body: some View {
         NavigationView {
@@ -47,7 +49,7 @@ struct ContentView: View {
                 
                 HStack {
                     Button("Change filter") {
-                        // change filter
+                        showingFilterSheet = true
                     }
                     
                     Spacer()
@@ -60,6 +62,9 @@ struct ContentView: View {
             .onChange(of: inputImage) { _ in loadImage() }
             .sheet(isPresented: $showingImagePicker) {
                 ImagePicker(image: $inputImage)
+            }
+            .confirmationDialog("Select a filter", isPresented: $showingFilterSheet) {
+                // dialog here
             }
         }
     }
@@ -77,7 +82,7 @@ struct ContentView: View {
     }
     
     func applyProcessing() {
-        currentFilter.intensity = Float(filterIntensity)
+        currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
         
         guard let outputImage = currentFilter.outputImage else { return }
         
